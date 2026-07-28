@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Chat App</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #6a82fb, #fc5c7d);
+        }
+
+        .join-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 40px 35px;
+            width: 100%;
+            max-width: 420px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .join-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6a82fb, #fc5c7d);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px auto;
+        }
+
+        .join-icon i {
+            font-size: 32px;
+            color: #fff;
+        }
+
+        .form-control {
+            border-radius: 12px;
+            padding: 10px 15px;
+        }
+
+        .form-control:focus {
+            box-shadow: none;
+            border-color: #6a82fb;
+        }
+
+        .btn-join {
+            background: linear-gradient(135deg, #6a82fb, #fc5c7d);
+            border: none;
+            border-radius: 12px;
+            padding: 10px;
+            font-weight: 600;
+            color: #fff;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .btn-join:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            color: #fff;
+        }
+
+        .input-group-text {
+            background: #f8f9fa;
+            border-radius: 12px 0 0 12px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="join-card">
+
+        <div class="text-center mb-4">
+
+            <div class="join-icon">
+                <i class="bi bi-chat-dots-fill"></i>
+            </div>
+
+            <h3 class="fw-bold mb-1">Chat App</h3>
+            <p class="text-muted mb-0">Join a room and start chatting</p>
+
+        </div>
+
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                <label class="form-label fw-semibold">Username</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
+                    <input
+                        type="text"
+                        name="username"
+                        class="form-control"
+                        placeholder="Enter your username"
+                        required
+                    >
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label fw-semibold">Room Name</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-door-open-fill"></i></span>
+                    <input
+                        type="text"
+                        name="room_name"
+                        class="form-control"
+                        placeholder="Enter your room name"
+                        required
+                    >
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-join w-100">
+                <i class="bi bi-box-arrow-in-right me-1"></i> Join Room
+            </button>
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>
